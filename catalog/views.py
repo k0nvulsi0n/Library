@@ -20,8 +20,15 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'catalog/index.html', context=context)
 
-# class BookListView(generic.ListView):
-#     model = Book
-#     contecontext_object_name = 'book_list'
-#     def get_queryset(self):
-#         return Book.objects.all()
+class BookListView(generic.ListView):
+    model = Book
+    contecontext_object_name = 'book_list'
+    def get_queryset(self):
+        return Book.objects.all()
+    template_name = 'catalog/books.html'
+
+# BACKUP: in case I get tired of learning CBVs:
+# def books(request):
+#     books = Book.objects.all()
+#     context = {'books': books}
+#     return render (request,'catalog/books.html' ,context=context)
