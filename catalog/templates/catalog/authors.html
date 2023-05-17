@@ -1,0 +1,8 @@
+{% extends "main.html" %}
+{% block content %}
+
+{% for author in author_list %}
+<strong><a href="">{{author.first_name}} {{author.last_name}}</a></strong>
+<p>{{author.date_of_birth}} - {{author.date_of_death}}</p>
+{% endfor %}
+{% endblock content %}

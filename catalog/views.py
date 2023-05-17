@@ -27,6 +27,12 @@ class BookListView(generic.ListView):
         return Book.objects.all()
     template_name = 'catalog/books.html'
 
+class AuthorListView(generic.ListView):
+    model = Author
+    contecontext_object_name = 'author_list'
+    def get_queryset(self):
+        return Author.objects.all()
+    template_name = 'catalog/authors.html'
 # BACKUP: in case I get tired of learning CBVs:
 # def books(request):
 #     books = Book.objects.all()
