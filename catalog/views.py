@@ -38,3 +38,6 @@ class AuthorListView(generic.ListView):
 #     books = Book.objects.all()
 #     context = {'books': books}
 #     return render (request,'catalog/books.html' ,context=context)
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = 'catalog/book-detail.html'
