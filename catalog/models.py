@@ -35,26 +35,26 @@ class Book(models.Model):
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     summary = models.TextField(max_length=2000, help_text='Enter a brief description of the book')
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
-    BOOK_STATUS = (
-        ('n', 'Not interested'),
-        ('i', 'Interested'),
-        ('o', 'Own'),
-        ('r', 'Read'),
-    )
-    status = models.CharField(
-        max_length=1,
-        choices=BOOK_STATUS,
-        blank=True,
-        default='n',
-        help_text='Have you read this book?',
-    )
-    if status == 'r':
-        date_read = models.DateField()
-    else:
-        date_read = models.DateField(null=True, blank=True)
+    # BOOK_STATUS = (
+    #     ('n', 'Not interested'),
+    #     ('i', 'Interested'),
+    #     ('o', 'Own'),
+    #     ('r', 'Read'),
+    # )
+    # status = models.CharField(
+    #     max_length=1,
+    #     choices=BOOK_STATUS,
+    #     blank=True,
+    #     default='n',
+    #     help_text='Have you read this book?',
+    # )
+    # if status == 'r':
+    #     date_read = models.DateField()
+    # else:
+    #     date_read = models.DateField(null=True, blank=True)
     
     class Meta:
-        ordering = ['title', 'status']
+        ordering = ['title', 'author']
     
     def __str__(self):
         return self.title

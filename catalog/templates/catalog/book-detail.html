@@ -5,5 +5,4 @@
 <a href="{{ book.author.get_absolute_url }}"><h3>{{book.author}}</h3></a>
 <p>{{book.genre.all|join:", "}}</p>
 <p>{{book.summary}}</p>
-<h4>{{book.status}}</h4>
 {% endblock content %}

@@ -14,15 +14,15 @@ class AuthorAdmin(admin.ModelAdmin):
 
 admin.site.register(Author, AuthorAdmin)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'display_genre', 'status')
-    list_filter = ('author', 'status')
+    list_display = ('title', 'author', 'display_genre')
+    list_filter = ('title', 'author')
     fieldsets = (
         (None, {
             'fields': ('title', 'author', 'genre', 'summary')
         }),
-        ('Personal data', {
-            'fields': ('status', 'date_read')
-        }),
+        # ('Personal data', {
+        #     'fields': ('status', 'date_read')
+        # }),
     )
 
 
