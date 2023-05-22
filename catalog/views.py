@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book, Author, Genre
 from django.views import generic
+from django.db.models import Q
 
 
 # Create your views here.
@@ -24,8 +25,12 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     contecontext_object_name = 'book_list'
-    def get_queryset(self):
-        return Book.objects.all()
+    def get_queryset(self):  # new
+        query = self.request.GET.get("q") if self.request.GET.get("q") != None else ""
+        object_list = Book.objects.filter(
+            Q(title__icontains=query)
+        )
+        return object_list
     template_name = 'catalog/books.html'
 
 class AuthorListView(generic.ListView):
