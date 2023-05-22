@@ -1,6 +1,8 @@
 {% extends "main.html" %}
 {% block content %}
-
+{% block title %}
+<title>Author Catalog</title>
+{% endblock title %}
 {% for author in author_list %}
 <strong><a href="{% url 'author-detail' author.id %}">{{author.first_name}} {{author.last_name}}</a></strong>
 <p>{{author.date_of_birth}} - {{author.date_of_death}}</p>

@@ -1,9 +1,13 @@
 {% extends "main.html" %}
+{% block title %}
+<title>{{author.first_name}} {{author.last_name}}</title>
+{% endblock title %}
 {% block content %}
-
 <h1>{{author.first_name}} {{author.last_name}}</h1>
 <p>{{author.date_of_birth}} - {{author.date_of_death}}</p>
+
 {% if author.bio != None %}
 <p>{{author.bio}}</p>
 {% endif %}
+
 {% endblock content %}

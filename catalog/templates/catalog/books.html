@@ -1,6 +1,8 @@
 {% extends "main.html" %}
 {% block content %}
-
+{% block title %}
+<title>Book Catalog</title>
+{% endblock title %}
 {% for book in book_list %}
 <div>
 <strong><a href="{% url 'book-detail' book.id %}">{{book.title}}</a></strong>
