@@ -1,8 +1,10 @@
 {% extends "main.html" %}
-{% block content %}
+
 {% block title %}
-<title>Book Catalog</title>
+Book Catalog
 {% endblock title %}
+
+{% block content %}
 <div class="list-container">
     {% for book in book_list %}
         <div>
