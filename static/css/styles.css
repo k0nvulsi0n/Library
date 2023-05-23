@@ -4,4 +4,13 @@ nav ul{
     padding: 0;
     display: inline-flex;
     gap: 10px;
-  }
+}
+
+.list-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.list-container div{
+  width: 10em;
+} 

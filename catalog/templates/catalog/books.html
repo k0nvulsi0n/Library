@@ -3,10 +3,12 @@
 {% block title %}
 <title>Book Catalog</title>
 {% endblock title %}
-{% for book in book_list %}
-<div>
-<strong><a href="{% url 'book-detail' book.id %}">{{book.title}}</a></strong>
-<p>{{book.author}}</p>
+<div class="list-container">
+    {% for book in book_list %}
+        <div>
+            <strong><a href="{% url 'book-detail' book.id %}">{{book.title}}</a></strong>
+            <p>{{book.author}}</p>
+        </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock content %}
