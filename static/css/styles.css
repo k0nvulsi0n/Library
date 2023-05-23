@@ -13,4 +13,7 @@ nav ul{
 
 .list-container div{
   width: 10em;
+  padding: 10px;
+  margin:auto;
+  border: solid;
 } 
