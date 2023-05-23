@@ -1,5 +1,6 @@
 <nav>
     <ul>
+        <div>
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'books' %}">All books</a></li>
         <li><a href="{% url 'authors' %}">All authors</a></li>
@@ -8,5 +9,11 @@
             <input type="text" name="q" placeholder="Search books..." />
             </form>
         </li>
+        </div>
+        {% if request.user.is_authenticated %}
+        <li class="account-link"><a href="">Account</a> <a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li class="account-link"><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
     </ul>
 </nav>
