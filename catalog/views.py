@@ -36,8 +36,13 @@ class BookListView(generic.ListView):
 class AuthorListView(generic.ListView):
     model = Author
     contecontext_object_name = 'author_list'
-    def get_queryset(self):
-        return Author.objects.all()
+    def get_queryset(self):  # new
+        query = self.request.GET.get("q") if self.request.GET.get("q") != None else ""
+        object_list = Author.objects.filter(
+            Q(first_name__icontains=query)|
+            Q(last_name__icontains=query)
+        )
+        return object_list
     template_name = 'catalog/authors.html'
 # BACKUP: in case I get tired of learning CBVs:
 # def books(request):

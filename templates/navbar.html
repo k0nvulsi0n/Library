@@ -4,11 +4,6 @@
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'books' %}">All books</a></li>
         <li><a href="{% url 'authors' %}">All authors</a></li>
-        <li>
-            <form method="GET" action="{% url 'books' %}">
-            <input type="text" name="q" placeholder="Search books..." />
-            </form>
-        </li>
         </div>
         {% if request.user.is_authenticated %}
         <li class="account-link"><a href="{% url 'profile' request.user.id %}">Account</a> <a href="{% url 'logout' %}">Logout</a></li>

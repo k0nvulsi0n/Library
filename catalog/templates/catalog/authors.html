@@ -5,6 +5,11 @@ Author Catalog
 {% endblock title %}
 
 {% block content %}
+<li>
+    <form method="GET" action="{% url 'authors' %}">
+    <input type="text" name="q" placeholder="Search authors..." />
+    </form>
+</li>
 <div class="list-container">
     {% for author in author_list %}
         <div>

@@ -5,6 +5,11 @@ Book Catalog
 {% endblock title %}
 
 {% block content %}
+<li>
+    <form method="GET" action="{% url 'books' %}">
+    <input type="text" name="q" placeholder="Search books..." />
+    </form>
+</li>
 <div class="list-container">
     {% for book in book_list %}
         <div>
