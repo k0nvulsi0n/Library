@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block title %}
+Users
+{% endblock title %}
+
+{% block content %}
+<li>
+    <form method="GET" action="{% url 'users' %}">
+    <input type="text" name="q" placeholder="Search users..." />
+    </form>
+</li>
+{% for user in user_list %}
+    <div>
+        <strong><a href="">{{user.username}}</a></strong>
+    </div>
+{% endfor %}
+{% endblock content %}

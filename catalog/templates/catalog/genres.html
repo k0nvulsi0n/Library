@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block title %}
+Genre Catalog
+{% endblock title %}
+
+{% block content %}
+<li>
+    <form method="GET" action="{% url 'genres' %}">
+    <input type="text" name="q" placeholder="Search genres..." />
+    </form>
+</li>
+{% for genre in genre_list %}
+    <div>
+        <strong><a href="">{{genre.name}}</a></strong>
+    </div>
+{% endfor %}
+{% endblock content %}

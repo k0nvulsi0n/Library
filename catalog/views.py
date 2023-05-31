@@ -25,7 +25,7 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     contecontext_object_name = 'book_list'
-    def get_queryset(self):  # new
+    def get_queryset(self):
         query = self.request.GET.get("q") if self.request.GET.get("q") != None else ""
         object_list = Book.objects.filter(
             Q(title__icontains=query)
@@ -36,7 +36,7 @@ class BookListView(generic.ListView):
 class AuthorListView(generic.ListView):
     model = Author
     contecontext_object_name = 'author_list'
-    def get_queryset(self):  # new
+    def get_queryset(self):
         query = self.request.GET.get("q") if self.request.GET.get("q") != None else ""
         object_list = Author.objects.filter(
             Q(first_name__icontains=query)|
@@ -44,6 +44,18 @@ class AuthorListView(generic.ListView):
         )
         return object_list
     template_name = 'catalog/authors.html'
+
+class GenreListView(generic.ListView):
+    model = Genre
+    contecontext_object_name = 'genre_list'
+    def get_queryset(self):
+        query = self.request.GET.get("q") if self.request.GET.get("q") != None else ""
+        object_list = Genre.objects.filter(
+            Q(name__icontains=query)
+        )
+        return object_list
+    template_name = 'catalog/genres.html'
+
 # BACKUP: in case I get tired of learning CBVs:
 # def books(request):
 #     books = Book.objects.all()
