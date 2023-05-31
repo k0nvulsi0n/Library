@@ -11,7 +11,7 @@
         </li>
         </div>
         {% if request.user.is_authenticated %}
-        <li class="account-link"><a href="">Account</a> <a href="{% url 'logout' %}">Logout</a></li>
+        <li class="account-link"><a href="{% url 'profile' request.user.id %}">Account</a> <a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
         <li class="account-link"><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
