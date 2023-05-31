@@ -50,3 +50,4 @@ class BookDetailView(generic.DetailView):
 class AuthorDetailView(generic.DetailView):
     model = Author
     template_name = 'catalog/author-detail.html'
+

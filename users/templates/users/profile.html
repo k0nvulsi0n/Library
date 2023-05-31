@@ -1,1 +1,35 @@
+{% extends "main.html" %}
+
+{% block title %}
 <h1>{{user.username}}</h1>
+{% endblock %}
+
+{% block content %}
+<h1>{{user.username}}</h1>
+<p>{{user.country.name}}</p>
+<p>{{user.birth_date}}</p>
+<p>{{user.user_bio}}</p>
+
+<h3>Favoutite genres:</h3>
+{% for genre in user.fav_genres.all %}
+<h5>{{genre.name}}</h5>
+{% endfor %}
+
+<h3>Favoutite authors:</h3>
+{% for author in user.fav_authors.all %}
+<h5>
+    <a href="{% url 'author-detail' author.id %}">{{author.first_name}} {{author.last_name}}</a>
+</h5>
+{% endfor %}
+
+<h3>Favoutite books:</h3>
+<div class="list-container">
+    {% for book in user.fav_books.all %}
+        <div>
+            <strong><a href="{% url 'book-detail' book.id %}">{{book.title}}</a></strong>
+            <p>{{book.author}}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
