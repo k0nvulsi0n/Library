@@ -5,6 +5,7 @@ user.username
 {% endblock %}
 
 {% block content %}
+<img src="{{user.prof_pic.url}}" height="auto" width="100em">
 <h1>{{user.username}}</h1>
 <p>{{user.country.name}} {{user.country.unicode_flag}}</p>
 <p>{{user.birth_date}}</p>
