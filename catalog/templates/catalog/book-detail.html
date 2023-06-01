@@ -6,7 +6,9 @@
 
 {% block content %}
 <h1>{{book.title}}</h1>
-<a href="{{ book.author.get_absolute_url }}"><h3>{{book.author}}</h3></a>
+{% for author in book.authors.all %}
+<a href="{{ author.get_absolute_url }}"><p>{{author}}</p></a>
+{% endfor %}     
 <p>{{book.genre.all|join:", "}}</p>
 <p>{{book.summary}}</p>
 {% endblock content %}

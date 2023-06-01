@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, Author, Genre
+from .models import *
 from django.views import generic
 from django.db.models import Q
 

@@ -14,7 +14,9 @@ Book Catalog
     {% for book in book_list %}
         <div>
             <strong><a href="{% url 'book-detail' book.id %}">{{book.title}}</a></strong>
-            <p>{{book.author}}</p>
+            {% for author in book.authors.all %}
+                <a href="{{ author.get_absolute_url }}"><p>{{author}}</p></a>
+            {% endfor %}        
         </div>
     {% endfor %}
 </div>
