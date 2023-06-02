@@ -2,6 +2,7 @@ from django.db import models
 from catalog.models import Book, Genre, Author
 from django.contrib.auth.models import AbstractUser
 from django_countries.fields import CountryField
+
 # Create your models here.
 
 

@@ -5,6 +5,7 @@ from django.db.models import Q
 
 
 # Create your views here.
+
 def index(request):
     """View function for home page of site."""
 
